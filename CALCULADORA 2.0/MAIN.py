@@ -1,9 +1,26 @@
+import re
+while True:
+    operacion = input("Que operación desea realizar?. Suma, resta, division, multiplicacion: ")
+    operacion = str(operacion)
 
-operacion = input("Que operación desea realizar: ")
-num1 = int(input("Ingrese el primer numero para operar: "))
-num2 = int(input("Ingrese el segundo numero para operar: "))
+    validacion_op = re.findall("suma|resta|division|multiplicacion",operacion)
 
+    if not validacion_op:
+        print("Ingrese una operación valida")
+    else:
+        break
+    print(f"Operación seleccionada: {operacion}")
+    
 operacion = operacion.lower()
+
+while True:
+    try:
+        num1 = int(input("Ingrese el primer número para operar: "))
+        num2 = int(input("Ingrese el segundo número para operar: "))
+    except ValueError:
+        print("Ingrese solo números enteros.")
+    else:
+        break
 
 from SUMA import Suma
 from RESTA import Resta
